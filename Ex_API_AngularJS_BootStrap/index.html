@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/app.js" defer></script>
+    <title>Seleção de Estado e Cidade</title>
+</head>
+
+<body ng-app="minhaAplicacao">
+    <div ng-controller="meuController" class="container">
+        <h1 class="mt-5">Seleção de Estado e Cidade</h1>
+        <form id="infoForm" class="mt-3">
+            <div class="form-group">
+                <label for="estado">Escolha um Estado:</label>
+                <select class="form-control" id="estado" ng-model="info.estado" ng-options="estado.nome for estado in estados"
+                    ng-change="carregarCidades()">
+                    <option value="">Selecione um estado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cidade">Escolha uma Cidade:</label>
+                <select class="form-control" id="cidade" ng-model="info.cidade" ng-options="cidade.nome for cidade in cidades">
+                    <option value="">Selecione um estado primeiro</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" ng-click="exibirInformacoes()">Exibir Conteúdo</button>
+        </form>
+        <div class="mt-3">
+            <p><strong>Estado Selecionado:</strong> {{info.estado.nome}}</p>
+            <p><strong>Cidade Selecionada:</strong> {{info.cidade.nome}}</p>
+        </div>
+    </div>
+</body>
+
+</html>
